@@ -32,7 +32,7 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="pavel.example.logging.Application" level="trace" additivity="false">
+    <logger name="pavel.programming.competition.Application" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </logger>

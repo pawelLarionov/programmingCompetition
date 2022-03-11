@@ -1,4 +1,4 @@
-package pavel.example.logging;
+package pavel.programming.competition;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

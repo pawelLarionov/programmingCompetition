@@ -1,4 +1,4 @@
-package pavel.example.logging;
+package pavel.programming.competition;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +12,9 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-
-		LOGGER.trace("TRACE Message");
-		LOGGER.debug("DEBUG Message");
-		LOGGER.info("INFO Message");
-		LOGGER.warn("WARN Message");
-		LOGGER.error("ERROR Message");
+		LOGGER.info("------------------------------------------------------------------------------------------------");
+		LOGGER.info("Programming competition game server started");
+		LOGGER.info("------------------------------------------------------------------------------------------------");
 	}
 
 }

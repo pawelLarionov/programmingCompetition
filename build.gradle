@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'pavel.example'
+group = 'org.programming.competition'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility =  JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -14,10 +14,10 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
+test {
 	useJUnitPlatform()
 }
