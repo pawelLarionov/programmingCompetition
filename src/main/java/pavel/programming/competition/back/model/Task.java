@@ -1,21 +1,23 @@
 package pavel.programming.competition.back.model;
 
+import java.util.UUID;
+
 /**
- *  Task to solve
+ * Task to solve
  */
-public class Task {
+public class Task extends IdModel {
     /**
-     *  Task name
+     * Task name
      */
     private final String name;
 
     /**
-     *  Task description
+     * Task description
      */
     private final String description;
 
     /**
-     *  Test input parameter with which the solution code will be submitted (compiled and run)
+     * Test input parameter with which the solution code will be submitted (compiled and run)
      */
     private final String inputParameter;
 
@@ -24,7 +26,8 @@ public class Task {
      */
     private final String outputParameter;
 
-    public Task(String name, String description, String inputParameter, String outputParameter) {
+    public Task(UUID id, String name, String description, String inputParameter, String outputParameter) {
+        super(id);
         this.name = name;
         this.description = description;
         this.inputParameter = inputParameter;

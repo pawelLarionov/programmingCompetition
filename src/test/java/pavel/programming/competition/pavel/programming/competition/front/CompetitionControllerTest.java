@@ -1,18 +1,20 @@
 package pavel.programming.competition.pavel.programming.competition.front;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import pavel.programming.competition.WebTestConfiguration;
 import pavel.programming.competition.front.CompetitionController;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
 
-import java.util.UUID;
+import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -34,16 +36,26 @@ public class CompetitionControllerTest {
 
     @Test
     public void getTaskListTest() throws Exception {
-        mockMvc.perform(get(CONTEXT_PATH + "/task/list"))
+        getTaskModels();
+    }
+
+    private List<TaskModel> getTaskModels() throws Exception {
+        MvcResult result = mockMvc.perform(get(CONTEXT_PATH + "/task/list"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
+
+        return objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                objectMapper.getTypeFactory().constructCollectionType(List.class, TaskModel.class));
     }
 
     @Test
     public void executeAndCheckTest_Test() throws Exception {
-        TaskModel taskModel = new TaskModel(UUID.randomUUID(), "Task1", "Description1");
-        TestModel testModel  = new TestModel("SuperBoy", "System.out.println('1')",  taskModel);
+        List<TaskModel> taskModels = getTaskModels();
+        Assertions.assertFalse(taskModels.isEmpty());
+
+        TestModel testModel = new TestModel("SuperBoy", "System.out.println('1')", taskModels.get(0).getId());
 
         mockMvc.perform(
                 post(CONTEXT_PATH + "/test/execute-and-check")

@@ -1,8 +1,10 @@
 package pavel.programming.competition.front.model;
 
 
+import java.util.UUID;
+
 /**
- *  Test to complete the task
+ * Test to complete the task
  */
 public class TestModel {
     /**
@@ -16,14 +18,14 @@ public class TestModel {
     private final String solutionCode;
 
     /**
-     * Task that this test solves
+     * Task id that this test solves
      */
-    private final TaskModel task;
+    private final UUID taskId;
 
-    public TestModel(String playerNickName, String solutionCode, TaskModel task) {
+    public TestModel(String playerNickName, String solutionCode, UUID taskId) {
         this.playerNickName = playerNickName;
         this.solutionCode = solutionCode;
-        this.task = task;
+        this.taskId = taskId;
     }
 
     public String getPlayerNickName() {
@@ -34,7 +36,7 @@ public class TestModel {
         return solutionCode;
     }
 
-    public TaskModel getTask() {
-        return task;
+    public UUID getTaskId() {
+        return taskId;
     }
 }

@@ -1,4 +1,4 @@
-package pavel.programming.competition.front.model;
+package pavel.programming.competition.back.model;
 
 import java.util.Objects;
 import java.util.UUID;

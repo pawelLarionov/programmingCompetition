@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pavel.programming.competition.front.model.SuccessScoreModel;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
-import pavel.programming.competition.back.service.SuccessScoreService;
-import pavel.programming.competition.back.service.TaskService;
-import pavel.programming.competition.back.service.TestService;
+import pavel.programming.competition.front.service.CompetitionFrontService;
 
 import java.util.List;
 
@@ -25,14 +23,10 @@ public class CompetitionController {
     private static final String EXECUTE_AND_CHECK = "/test/execute-and-check";
     private static final String PLAYER_TOP_LIST = "/player/top-list/{count}";
 
-    private final TaskService taskService;
-    private final SuccessScoreService successScoreService;
-    private final TestService testService;
+    private final CompetitionFrontService competitionFrontService;
 
-    public CompetitionController(TaskService taskService, SuccessScoreService successScoreService, TestService testService) {
-        this.taskService = taskService;
-        this.successScoreService = successScoreService;
-        this.testService = testService;
+    public CompetitionController(CompetitionFrontService competitionFrontService) {
+        this.competitionFrontService = competitionFrontService;
     }
 
     /**
@@ -40,7 +34,7 @@ public class CompetitionController {
      */
     @GetMapping(value = TASK_LIST)
     public List<TaskModel> getTaskList() {
-       return taskService.getTaskList();
+        return competitionFrontService.getTaskList();
     }
 
     /**
@@ -49,7 +43,7 @@ public class CompetitionController {
      */
     @PostMapping(value = EXECUTE_AND_CHECK)
     public boolean executeAndCheckTest(@RequestBody TestModel test) {
-        return testService.executeAndCheckTest(test);
+        return competitionFrontService.executeAndCheckTest(test);
     }
 
     /**
@@ -59,7 +53,7 @@ public class CompetitionController {
      */
     @GetMapping(value = PLAYER_TOP_LIST)
     public List<SuccessScoreModel> getPlayerTopList(@PathVariable("count") int count) {
-       return successScoreService.getPlayerTopList(count);
+        return competitionFrontService.getPlayerTopList(count);
     }
 
 }
