@@ -1,4 +1,4 @@
-package pavel.programming.competition.service;
+package pavel.programming.competition.back.service;
 
 import pavel.programming.competition.front.model.SuccessScoreModel;
 

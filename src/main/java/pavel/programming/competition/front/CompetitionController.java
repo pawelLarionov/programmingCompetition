@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import pavel.programming.competition.front.model.SuccessScoreModel;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
-import pavel.programming.competition.service.SuccessScoreService;
-import pavel.programming.competition.service.TaskService;
-import pavel.programming.competition.service.TestService;
+import pavel.programming.competition.back.service.SuccessScoreService;
+import pavel.programming.competition.back.service.TaskService;
+import pavel.programming.competition.back.service.TestService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

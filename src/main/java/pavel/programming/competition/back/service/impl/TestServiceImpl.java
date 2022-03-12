@@ -1,8 +1,8 @@
-package pavel.programming.competition.service.impl;
+package pavel.programming.competition.back.service.impl;
 
 import org.springframework.stereotype.Service;
 import pavel.programming.competition.front.model.TestModel;
-import pavel.programming.competition.service.TestService;
+import pavel.programming.competition.back.service.TestService;
 
 @Service
 public class TestServiceImpl implements TestService {

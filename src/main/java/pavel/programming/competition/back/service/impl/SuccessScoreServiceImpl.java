@@ -1,8 +1,8 @@
-package pavel.programming.competition.service.impl;
+package pavel.programming.competition.back.service.impl;
 
 import org.springframework.stereotype.Service;
 import pavel.programming.competition.front.model.SuccessScoreModel;
-import pavel.programming.competition.service.SuccessScoreService;
+import pavel.programming.competition.back.service.SuccessScoreService;
 
 import java.util.ArrayList;
 import java.util.List;

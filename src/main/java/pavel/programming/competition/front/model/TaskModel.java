@@ -1,9 +1,11 @@
 package pavel.programming.competition.front.model;
 
+import java.util.UUID;
+
 /**
  *  Task to solve
  */
-public class TaskModel {
+public class TaskModel extends IdModel {
     /**
      *  Task name
      */
@@ -14,21 +16,10 @@ public class TaskModel {
      */
     private final String description;
 
-    /**
-     *  Test input parameter with which the solution code will be submitted (compiled and run)
-     */
-    private final String inputParameter;
-
-    /**
-     * Test output parameter with which the submission output will be compared to determine success/failure
-     */
-    private final String outputParameter;
-
-    public TaskModel(String name, String description, String inputParameter, String outputParameter) {
+    public TaskModel(UUID id, String name, String description) {
+        super(id);
         this.name = name;
         this.description = description;
-        this.inputParameter = inputParameter;
-        this.outputParameter = outputParameter;
     }
 
     public String getName() {
@@ -37,13 +28,5 @@ public class TaskModel {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getInputParameter() {
-        return inputParameter;
-    }
-
-    public String getOutputParameter() {
-        return outputParameter;
     }
 }

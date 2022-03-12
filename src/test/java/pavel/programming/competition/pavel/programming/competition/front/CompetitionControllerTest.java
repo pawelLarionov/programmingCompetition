@@ -12,6 +12,8 @@ import pavel.programming.competition.front.CompetitionController;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
 
+import java.util.UUID;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -40,7 +42,7 @@ public class CompetitionControllerTest {
 
     @Test
     public void executeAndCheckTest_Test() throws Exception {
-        TaskModel taskModel = new TaskModel("Task1", "Description1", "1", "1");
+        TaskModel taskModel = new TaskModel(UUID.randomUUID(), "Task1", "Description1");
         TestModel testModel  = new TestModel("SuperBoy", "System.out.println('1')",  taskModel);
 
         mockMvc.perform(
