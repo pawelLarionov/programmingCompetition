@@ -4,8 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import pavel.programming.competition.WebTestConfiguration;
 import pavel.programming.competition.front.CompetitionController;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
@@ -18,6 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(CompetitionController.class)
+@Import(WebTestConfiguration.class)
 public class CompetitionControllerTest {
     private final static String CONTEXT_PATH = "/competition";
 
