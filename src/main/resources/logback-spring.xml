@@ -32,14 +32,15 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="pavel.programming.competition.Application" level="trace" additivity="false">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
+    <logger name="pavel.programming.competition.back.remotecall.jdoodle.impl.JDoodleServiceImpl" level="debug"
+            additivity="false">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
     </logger>
 
     <!-- LOG everything at INFO level -->
     <root level="info">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
     </root>
 </configuration>

@@ -14,6 +14,9 @@ import pavel.programming.competition.front.CompetitionController;
 import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -55,7 +58,12 @@ public class CompetitionControllerTest {
         List<TaskModel> taskModels = getTaskModels();
         Assertions.assertFalse(taskModels.isEmpty());
 
-        TestModel testModel = new TestModel("SuperBoy", "System.out.println('1')", taskModels.get(0).getId());
+        String solutionCode = readStringFromResources("TestSolution.java");
+
+        TestModel testModel = new TestModel(
+                "SuperBoy",
+                solutionCode,
+                taskModels.get(0).getId());
 
         mockMvc.perform(
                 post(CONTEXT_PATH + "/test/execute-and-check")
@@ -78,5 +86,11 @@ public class CompetitionControllerTest {
                 .andReturn();
     }
 
+    private String readStringFromResources(String path) throws IOException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(path);
+        Assertions.assertNotNull(inputStream);
+        return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+    }
 
 }

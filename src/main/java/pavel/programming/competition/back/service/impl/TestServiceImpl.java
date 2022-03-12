@@ -3,7 +3,7 @@ package pavel.programming.competition.back.service.impl;
 import org.springframework.stereotype.Service;
 import pavel.programming.competition.back.dao.TaskDao;
 import pavel.programming.competition.back.model.Task;
-import pavel.programming.competition.back.service.JdoodleService;
+import pavel.programming.competition.back.remotecall.jdoodle.JDoodleService;
 import pavel.programming.competition.back.service.TestService;
 
 import java.util.UUID;
@@ -11,11 +11,11 @@ import java.util.UUID;
 @Service
 public class TestServiceImpl implements TestService {
 
-    private final JdoodleService jdoodleService;
+    private final JDoodleService jdoodleService;
 
     private final TaskDao taskDAO;
 
-    public TestServiceImpl(JdoodleService jdoodleService, TaskDao taskDAO) {
+    public TestServiceImpl(JDoodleService jdoodleService, TaskDao taskDAO) {
         this.jdoodleService = jdoodleService;
         this.taskDAO = taskDAO;
     }
@@ -28,9 +28,8 @@ public class TestServiceImpl implements TestService {
             throw new IllegalArgumentException("Not found task by id " + taskId);
         }
 
-        String result = jdoodleService.execute(solutionCode, new String[]{task.getInputParameter()});
-
-        //boolean success = task.getOutputParameter().equals(result);
+        String result = jdoodleService.executeJava(solutionCode, task.getInputParameter());
+        boolean success = result != null && result.trim().equals(task.getOutputParameter());
         //if (success) {
         // testDAO.save(test);
         //  }
