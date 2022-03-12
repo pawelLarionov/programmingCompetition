@@ -1,7 +1,7 @@
-package pavel.programming.competition.back.service;
+package pavel.programming.competition.back.dao;
 
 import pavel.programming.competition.back.model.Test;
 
-public interface TestService {
+public interface TestDao {
     void saveTest(Test test);
 }

@@ -3,11 +3,9 @@ package pavel.programming.competition.back.remotecall.jdoodle.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import pavel.programming.competition.back.remotecall.jdoodle.JDoodleService;
 import pavel.programming.competition.back.remotecall.jdoodle.model.JDoodleRequest;
@@ -37,7 +35,9 @@ public class JDoodleServiceImpl implements JDoodleService {
         HttpEntity<JDoodleRequest> request = new HttpEntity<>(jDoodleRequest);
         logger.debug("JDoodleRequest: {}", request.toString());
 
-        ResponseEntity<JDoodleResponse> response = null;
+        return "1";
+
+        /*ResponseEntity<JDoodleResponse> response = null;
         try {
             response = jDoodleRestTemplate.exchange(J_DOODLE_API_URL, HttpMethod.POST, request, JDoodleResponse.class);
             logger.debug("response: {}", response);
@@ -51,7 +51,7 @@ public class JDoodleServiceImpl implements JDoodleService {
         }
 
         logger.debug("jDoodleResponse: {}", jDoodleResponse);
-        return jDoodleResponse.getOutput();
+        return jDoodleResponse.getOutput();*/
     }
 
     private JDoodleResponse getJDoodleResponse(ResponseEntity<JDoodleResponse> response) {

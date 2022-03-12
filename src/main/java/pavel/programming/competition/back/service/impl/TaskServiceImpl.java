@@ -6,6 +6,7 @@ import pavel.programming.competition.back.model.Task;
 import pavel.programming.competition.back.service.TaskService;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -18,5 +19,10 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<Task> getTaskList() {
         return taskDAO.getTaskList();
+    }
+
+    @Override
+    public Task getTaskById(UUID taskId) {
+        return taskDAO.getTaskById(taskId);
     }
 }
