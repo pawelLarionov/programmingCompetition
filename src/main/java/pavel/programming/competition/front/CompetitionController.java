@@ -11,6 +11,8 @@ import pavel.programming.competition.front.model.TaskModel;
 import pavel.programming.competition.front.model.TestModel;
 import pavel.programming.competition.front.service.CompetitionFrontService;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -42,17 +44,16 @@ public class CompetitionController {
      * @return true - if the submitted solution output value equals expected output value
      */
     @PostMapping(value = EXECUTE_AND_CHECK)
-    public boolean executeAndCheckTest(@RequestBody TestModel test) {
+    public boolean executeAndCheckTest(@Valid @RequestBody TestModel test) {
         return competitionFrontService.executeAndCheckTest(test);
     }
 
     /**
-     *
      * @param count - max row count in top list
      * @return List of the top players, list.size <= count
      */
     @GetMapping(value = PLAYER_TOP_LIST)
-    public List<SuccessScoreModel> getPlayerTopList(@PathVariable("count") int count) {
+    public List<SuccessScoreModel> getPlayerTopList(@NotBlank @PathVariable("count") int count) {
         return competitionFrontService.getPlayerTopList(count);
     }
 
