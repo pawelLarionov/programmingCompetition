@@ -1,6 +1,8 @@
 package pavel.programming.competition.front.model;
 
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
@@ -10,22 +12,25 @@ public class TestModel {
     /**
      *  Player nick name, who wrote the test
      */
+    @NotBlank(message = "playerNickName is mandatory")
     private final String playerNickName;
 
     /**
      * Program solution code to solve the problem
      */
+    @NotBlank(message = "solutionCode is mandatory")
     private final String solutionCode;
 
     /**
      * Task id that this test solves
      */
-    private final UUID taskId;
+    @NotNull(message = "taskGlobalId is mandatory")
+    private final UUID taskGlobalId;
 
-    public TestModel(String playerNickName, String solutionCode, UUID taskId) {
+    public TestModel(String playerNickName, String solutionCode, UUID taskGlobalId) {
         this.playerNickName = playerNickName;
         this.solutionCode = solutionCode;
-        this.taskId = taskId;
+        this.taskGlobalId = taskGlobalId;
     }
 
     public String getPlayerNickName() {
@@ -36,7 +41,7 @@ public class TestModel {
         return solutionCode;
     }
 
-    public UUID getTaskId() {
-        return taskId;
+    public UUID getTaskGlobalId() {
+        return taskGlobalId;
     }
 }

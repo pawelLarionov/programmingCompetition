@@ -9,8 +9,8 @@ public interface TaskExecutionService {
      *
      * @param playerNickName Player nick name, who wrote the test
      * @param solutionCode   Program solution code to solve the problem
-     * @param taskId         Task id that this test solves
+     * @param taskGlobalId   Task global id that this test solves
      * @return true - if the submitted solution output value equals expected output value
      */
-    boolean executeAndCheckTest(String playerNickName, String solutionCode, UUID taskId);
+    boolean executeAndCheckTest(String playerNickName, String solutionCode, UUID taskGlobalId);
 }

@@ -12,14 +12,14 @@ public class SuccessScoreModel {
     /**
      * Count of successful tests
      */
-    private final int countSuccessfulTests;
+    private final long countSuccessfulTests;
 
     /**
      * Names of solved tasks separated by ','
      */
     private final String namesOfSolvedTasks;
 
-    public SuccessScoreModel(String playerNickName, int countSuccessfulTests, String namesOfSolvedTasks) {
+    public SuccessScoreModel(String playerNickName, long countSuccessfulTests, String namesOfSolvedTasks) {
         this.playerNickName = playerNickName;
         this.countSuccessfulTests = countSuccessfulTests;
         this.namesOfSolvedTasks = namesOfSolvedTasks;
@@ -29,7 +29,7 @@ public class SuccessScoreModel {
         return playerNickName;
     }
 
-    public int getCountSuccessfulTests() {
+    public long getCountSuccessfulTests() {
         return countSuccessfulTests;
     }
 

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class ModelMapperImpl implements ModelMapper {
     private TaskModel mapTaskToFront(Task task) {
-        return new TaskModel(task.getId(), task.getName(), task.getDescription());
+        return new TaskModel(task.getGlobalId(), task.getName(), task.getDescription());
     }
 
     @Override

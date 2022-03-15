@@ -9,13 +9,13 @@ public interface TaskService {
     /**
      * @return List of all tasks
      */
-    List<Task> getTaskList();
+    List<Task> findAll();
 
     /**
      * Return task by id
      *
-     * @param taskId - task id
+     * @param taskGlobalId - global task id
      * @return Task or null if it doesn't exist task with that taskId
      */
-    Task getTaskById(UUID taskId);
+    Task findByGlobalId(UUID taskGlobalId);
 }

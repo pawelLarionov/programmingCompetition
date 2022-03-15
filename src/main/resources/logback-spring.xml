@@ -32,11 +32,23 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="pavel.programming.competition.back.remotecall.jdoodle.impl.JDoodleServiceImpl" level="debug"
+<!--    <logger name="logging.level.org.hibernate.SQL" level="debug"
             additivity="false">
         <appender-ref ref="RollingFile"/>
         <appender-ref ref="Console"/>
     </logger>
+
+    <logger name="logging.level.org.hibernate.type.descriptor.sql.BasicBinder" level="trace"
+            additivity="false">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
+    </logger>
+
+    <logger name="pavel.programming.competition.back.remotecall.jdoodle.impl.JDoodleServiceImpl" level="debug"
+            additivity="false">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
+    </logger>-->
 
     <!-- LOG everything at INFO level -->
     <root level="info">

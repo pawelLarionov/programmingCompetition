@@ -3,9 +3,9 @@ package pavel.programming.competition.front.model;
 import java.util.UUID;
 
 /**
- *  Task to solve
+ * Task to solve
  */
-public class TaskModel extends IdModel {
+public class TaskModel extends GlobalIdModel {
     /**
      *  Task name
      */
