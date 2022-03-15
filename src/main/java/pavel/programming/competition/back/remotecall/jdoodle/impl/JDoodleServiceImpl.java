@@ -2,6 +2,7 @@ package pavel.programming.competition.back.remotecall.jdoodle.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -16,12 +17,21 @@ import pavel.programming.competition.back.remotecall.jdoodle.model.JDoodleRespon
 @Service
 public class JDoodleServiceImpl implements JDoodleService {
     private static final Logger logger = LoggerFactory.getLogger(JDoodleServiceImpl.class);
-    // TODO: move to config file
-    private static final String J_DOODLE_API_URL = "https://api.jdoodle.com/v1/execute";
-    private static final String CLIENT_ID = "495125dc32d25a2a9b78a5bcd3387ec4";
-    private static final String CLIENT_SECRET = "7874cbf2019d941607eafb422acc54b80921dcbadce499427d1ef1beecb596f3";
-    private static final String LANGUAGE = "java";
-    private static final String LANGUAGE_VERSION_INDEX = "4";
+
+    @Value("${JDoodle.api.url}")
+    private String jDoodleApiUrl;
+
+    @Value("${JDoodle.api.client.id}")
+    private String clientId;
+
+    @Value("${JDoodle.api.client.secret}")
+    private String clientSecret;
+
+    @Value("${JDoodle.api.script.language.name}")
+    private String scriptLanguage;
+
+    @Value("${JDoodle.api.script.language.version}")
+    private String scriptLanguageVersion;
 
     private final RestTemplate jDoodleRestTemplate;
 
@@ -32,14 +42,14 @@ public class JDoodleServiceImpl implements JDoodleService {
     @Override
     public String executeJava(String solutionCode, String inputParameter) {
         JDoodleRequest jDoodleRequest = new JDoodleRequest(
-                CLIENT_ID, CLIENT_SECRET, solutionCode, inputParameter, LANGUAGE, LANGUAGE_VERSION_INDEX);
+                clientId, clientSecret, solutionCode, inputParameter, scriptLanguage, scriptLanguageVersion);
 
         HttpEntity<JDoodleRequest> request = new HttpEntity<>(jDoodleRequest);
         logger.debug("JDoodleRequest: {}", request.toString());
 
         ResponseEntity<JDoodleResponse> response = null;
         try {
-            response = jDoodleRestTemplate.exchange(J_DOODLE_API_URL, HttpMethod.POST, request, JDoodleResponse.class);
+            response = jDoodleRestTemplate.exchange(jDoodleApiUrl, HttpMethod.POST, request, JDoodleResponse.class);
             logger.debug("response: {}", response);
         } catch (RestClientException e) {
             logger.error("Exception on JDoodle call request", e);

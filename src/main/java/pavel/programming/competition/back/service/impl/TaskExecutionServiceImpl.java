@@ -14,12 +14,12 @@ public class TaskExecutionServiceImpl implements TaskExecutionService {
 
     private final JDoodleService jdoodleService;
     private final TaskService taskService;
-    private final UserService testService;
+    private final UserService userService;
 
-    public TaskExecutionServiceImpl(JDoodleService jdoodleService, TaskService taskService, UserService testService) {
+    public TaskExecutionServiceImpl(JDoodleService jdoodleService, TaskService taskService, UserService userService) {
         this.jdoodleService = jdoodleService;
         this.taskService = taskService;
-        this.testService = testService;
+        this.userService = userService;
     }
 
     @Override
@@ -29,10 +29,10 @@ public class TaskExecutionServiceImpl implements TaskExecutionService {
             throw new IllegalArgumentException("unknown task with taskGlobalId: " + taskGlobalId);
         }
 
-        String result = "2";//jdoodleService.executeJava(solutionCode, task.getInputParameter());
+        String result = jdoodleService.executeJava(solutionCode, task.getInputParameter());
         boolean success = result != null && result.trim().equals(task.getOutputParameter());
         if (success) {
-            testService.addTaskToUser(playerNickName, task.getId());
+            userService.addTaskToUser(playerNickName, task.getId());
         }
         return success;
     }

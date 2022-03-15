@@ -20,3 +20,14 @@ spring:
       hibernate:
         format_sql: true
     open-in-view: false
+
+JDoodle:
+  api:
+    url: https://api.jdoodle.com/v1/execute
+    client:
+      id: 495125dc32d25a2a9b78a5bcd3387ec4
+      secret: 7874cbf2019d941607eafb422acc54b80921dcbadce499427d1ef1beecb596f3
+    script:
+      language:
+        name: java
+        version: 4
