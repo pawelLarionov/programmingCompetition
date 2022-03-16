@@ -18,7 +18,7 @@ import pavel.programming.competition.back.remotecall.jdoodle.model.JDoodleRespon
 public class JDoodleServiceImpl implements JDoodleService {
     private static final Logger logger = LoggerFactory.getLogger(JDoodleServiceImpl.class);
 
-    @Value("${JDoodle.api.url}")
+    @Value("${JDoodle.api.url: https://api.jdoodle.com/v1/execute}")
     private String jDoodleApiUrl;
 
     @Value("${JDoodle.api.client.id}")
@@ -27,10 +27,10 @@ public class JDoodleServiceImpl implements JDoodleService {
     @Value("${JDoodle.api.client.secret}")
     private String clientSecret;
 
-    @Value("${JDoodle.api.script.language.name}")
+    @Value("${JDoodle.api.script.language.name:java}")
     private String scriptLanguage;
 
-    @Value("${JDoodle.api.script.language.version}")
+    @Value("${JDoodle.api.script.language.version:4}")
     private String scriptLanguageVersion;
 
     private final RestTemplate jDoodleRestTemplate;
