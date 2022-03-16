@@ -1,0 +1,5 @@
+{
+  "playerNickName": "Tom",
+  "solutionCode": "import java.util.Scanner;\n\npublic class SolutionDoubleString {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String inputParameter = scanner.nextLine();\n        String outputParameter = doubleString(inputParameter);\n        System.out.print(outputParameter);\n    }\n\n\n    private static String doubleString(String string) {\n        return string + \" \" + string;\n    }\n}",
+  "taskGlobalId": "31fb0240-7d59-4601-8465-e59ca96109b2"
+}

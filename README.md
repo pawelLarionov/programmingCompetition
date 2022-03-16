@@ -50,7 +50,14 @@ The app defines following APIs.
 You can test them using postman or any other rest client.
 
     curl http://localhost:8080/competition/task/list
-    curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+     
+    curl -d "@SolutionDoubleStringNik.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+    curl -d "@SolutionDoubleStringOry.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+    curl -d "@SolutionDoubleStringTom.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+    curl -d "@SolutionReverseStringAnn.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+    curl -d "@SolutionReverseStringNik.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+    curl -d "@SolutionReverseStringTom.json" -H "Content-Type: application/json" -X POST http://localhost:8080/competition/test/execute-and-check
+
     curl http://localhost:8080/competition/player/top-list/3
 
 ## Testing

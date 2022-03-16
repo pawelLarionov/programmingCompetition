@@ -1,0 +1,5 @@
+{
+  "playerNickName": "Nik",
+  "solutionCode": "import java.util.Scanner;\n\npublic class SolutionReverseString {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String inputParameter = scanner.nextLine();\n        String outputParameter = reverseString(inputParameter);\n        System.out.print(outputParameter);\n    }\n\n\n    private static String reverseString(String string) {\n            int leftPointer = 0;\n            int rightPointer = string.length() - 1;\n\n            char[] charArray = string.toCharArray();\n            while(rightPointer > leftPointer){\n                char temp = charArray[rightPointer];\n                charArray[rightPointer] = charArray[leftPointer];\n                charArray[leftPointer] = temp;\n                leftPointer++;\n                rightPointer--;\n            }\n            return String.valueOf(charArray);\n    }\n}",
+  "taskGlobalId": "31fb0240-7d59-4601-8465-e59ca96109b1"
+}
