@@ -77,7 +77,7 @@ public class JDoodleIntegrationTest {
         taskEntity2.setDescription("Please write a program that repeats the input string one space \n" +
                 "and sends it to System.out.\n" +
                 "For example input string:  hello,  output string: hello hello");
-        taskEntity2.setInputParameter("hello hello");
+        taskEntity2.setInputParameter("hello");
         taskEntity2.setOutputParameter("hello hello");
 
         taskEntities.add(taskEntity2);
